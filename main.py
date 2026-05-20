@@ -55,12 +55,13 @@ test case 8. 삭제
 """
 
 import AccountManager
+import PrintAllAccount
 
 SIGN_UP = "1"
 SIGN_IN = "2"
-PRINT_USER = "3"
-PRINT_ALL_USER = "4"
-UPDATE_USER = "5"
+UPDATE_USER = "3"
+PRINT_USER = "4"
+PRINT_ALL_USER = "5"
 EXIT = "99"
 
 LOOP_COUNT = 3
@@ -91,7 +92,7 @@ while isRunning:
         pass
 
     elif PRINT_ALL_USER == selected:
-        pass
+        PrintAllAccount.startLoop()
 
     elif EXIT == selected:
         isRunning = False
