@@ -55,6 +55,7 @@ test case 8. 삭제
 """
 
 import AccountManager
+import AddAcount
 import PrintAllAccount
 
 SIGN_UP = "1"
@@ -80,7 +81,7 @@ while isRunning:
     selected = input("옵션을 선택하세요: ")
 
     if SIGN_UP == selected:
-        pass
+        AddAcount.createAccount()
 
     elif SIGN_IN == selected:
         pass
