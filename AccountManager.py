@@ -18,23 +18,42 @@ KEY_PHONE = "PHONE"
 
 DEV_MODE = True
 
+accounts = {
+    "parkjungho": {
+        KEY_ID: "parkjungho",
+        KEY_PW: "1111",
+        KEY_EMAIL: "parkjungho20@gmail.com",
+        KEY_PHONE: "010-5520-0547",
+    }
+}
 
-accounts = {}
+
+# ID 비교
+def isExistsId(id):
+    return id in accounts
+
+
+# PW 비교
+def isValidAccount(id, pw):
+    if isExistsId(id):
+        if pw == accounts[id][KEY_PW]:
+            return True
+
+    return False
+    # 계정이 유효하면 return True
+    # 계정이 유효하지 않으면 return False
 
 
 def createAccount(id, pw, email, phone):
-    accounts[id] = {KEY_ID: id, KEY_PW: pw, KEY_EMAIL: email, KEY_PHONE: phone}
-
-
-def getAccount():
-    return accounts
+    pass
 
 
 if DEV_MODE:
+    pass
     # createAccount("1", "1", "parkjungho@gmail.com", "010-1111-1111")
-    # createAccount("2", "2", "parkjungho@gmail.com", "010-2222-2222")
-    createAccount("parkjungho", "1111", "parkjungho@gmail.com", "01012334556")
-    createAccount("Leeyoonho", "2222", "yunho@kakao.com", "01012334556")
-    createAccount("LeeGyuchan", "3333", "gyuchan@dasd@daum.net", "01012334556")
-    createAccount("KimTaeJoon", "4444", "taejoon@naver.com", "01012334556")
-    createAccount("jangdongeun", "5555", "dongeun@nate.com", "01012334556")
+    # # createAccount("2", "2", "parkjungho@gmail.com", "010-2222-2222")
+    # createAccount("parkjungho", "1111", "parkjungho@gmail.com", "01012334556")
+    # createAccount("Leeyoonho", "2222", "yunho@kakao.com", "01012334556")
+    # createAccount("LeeGyuchan", "3333", "gyuchan@dasd@daum.net", "01012334556")
+    # createAccount("KimTaeJoon", "4444", "taejoon@naver.com", "01012334556")
+    # createAccount("jangdongeun", "5555", "dongeun@nate.com", "01012334556")
