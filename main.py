@@ -57,6 +57,7 @@ test case 8. 삭제
 import AccountManager
 import AddAcount
 import PrintAllAccount
+import PrintAccount
 
 SIGN_UP = "1"
 SIGN_IN = "2"
@@ -91,7 +92,7 @@ while isRunning:
         pass
 
     elif PRINT_USER == selected:
-        pass
+        PrintAccount.printAccount()            #실행은 되나 Manager쪽에 pw키 존재 확인이 없어서 오류 발생 해결부탁
 
     elif PRINT_ALL_USER == selected:
         PrintAllAccount.startLoop()
@@ -102,3 +103,5 @@ while isRunning:
 
     else:
         print("정상적인 옵션을 선택해주세요.")
+
+    
