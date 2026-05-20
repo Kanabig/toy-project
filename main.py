@@ -84,7 +84,8 @@ while isRunning:
         AddAcount.createAccount()
 
     elif SIGN_IN == selected:
-        pass
+        import Login
+        Login.authN()
 
     elif UPDATE_USER == selected:
         pass
