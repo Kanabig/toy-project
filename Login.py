@@ -19,36 +19,56 @@ def authN():
     print('처음으로 돌아갑니다.')
     return False
 
-# print('-' * 30)
 
-# #아이디 찾기
-# account = am.accounts
+
+
+
+# # print('-' * 30)
+
+# # #아이디 찾기
+
+# accounts = am.accounts
 
 # def doubleAuth (email):
 #     for account in account.value():
 #         if email == [am.account.key]:
 #             return account
+#     return
 
-# def findId ():
-#     name = input('이름 입력:').strip()
-#     phone = input('연락처: ').strip()
+# # accounts = {
+#     # id : {
+#     #     KEY_ID: id,
+#     #     KEY_PW: pw,
+#     #     KEY_EMAIL: email,
+#     #     KEY_PHONE: phone
+#     # }
+#     # id2 : {
+#     #     KEY_ID: id,
+#     #     KEY_PW: pw,
+#     #     KEY_EMAIL: email,
+#     #     KEY_PHONE: phone
+#     # }
+# # }
 
-#     for uid, info in account.items():
 
-#         if info['name'] == name and info['iphone'] == phone:
-#             print(f"['name']의 아이디: {uid}")
+# def findId (id, phone):
+#     for info in accounts.values():
+
+#         if info[am.KEY_ID] == id and info[am.KEY_PHONE] == phone:
+#             print(f"아이디: {info[am.KEY_ID]}")
 
 # #비밀번호 찾기
 # def doubleAuth (email):
 #     for account in account.value():
 #         if email == [am.account.key]:
 #             return account
+#     return
 
-# def findPw ():
-#     name = input('이름 입력:').strip()
-#     phone = input('연락처: ').strip()
+# def findPw (id, phone):
+#     for info in accounts.values():
 
-#     for upw, info in account.items():
+#         if info[am.KEY_ID] == id and info[am.KEY_PHONE] == phone:
+#             print(f"비밀번호: {info[am.KEY_PW]}")
+        
 
-#         if info['name'] == name and info['iphone'] == phone:
-#             print(f"['name']의 비밀번화: {upw}")
+# findId(id, phone)

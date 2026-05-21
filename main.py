@@ -56,6 +56,7 @@ test case 8. 삭제
 
 import AccountManager
 import AddAcount
+import Login
 import PrintAllAccount
 import PrintAccount
 import UpdateAccountInfo
@@ -86,7 +87,6 @@ while isRunning:
         AddAcount.addAccount()
 
     elif SIGN_IN == selected:
-        import Login
         Login.authN()
 
     elif UPDATE_USER == selected:
