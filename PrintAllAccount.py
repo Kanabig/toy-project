@@ -13,20 +13,78 @@ accounts = am.accounts
 
 DEBUG_MOD = False
 
+PRINT_ALL = "1"
+PRINT_PAGE = "2"
+EXIT_LOOP = "3"
+
+PAGE_PRINT_COUNT = 3
+
+
+def printAccount(account):
+    print("-" * 30)
+    print(f"ID{":":>4} {account[am.KEY_ID]}")
+    print(f"PW{":":>4} {account[am.KEY_PW]}")
+    print(f"EMAIL: {account[am.KEY_EMAIL]}")
+    print(f"PHONE: {account[am.KEY_PHONE]}")
+    print("-" * 30)
+
 
 # --- 내가 맞은 기능
 def printAll():
     for account in accounts.values():
-        print("-" * 30)
-        print(f"ID{":":>4} {account[am.KEY_ID]}")
-        print(f"PW{":":>4} {account[am.KEY_PW]}")
-        print(f"EMAIL: {account[am.KEY_EMAIL]}")
-        print(f"PHONE: {account[am.KEY_PHONE]}")
-        print("-" * 30)
+        printAccount(account)
+
+
+def printPage():
+
+    onPrinting = True
+
+    accountList = list(accounts.values())
+    print(accountList)
+    indexOffset = 0
+    index = 0
+    currentPage = 0
+
+    while onPrinting:
+        while index < indexOffset + PAGE_PRINT_COUNT:
+
+            if index >= len(accountList):
+                onPrinting = False
+                break
+
+            printAccount(accountList[index])
+            index += 1
+
+        indexOffset += PAGE_PRINT_COUNT
+        index = indexOffset
+        currentPage += 1
+
+        print("-" * 30, f"page: {currentPage}")
+        input("계속하려면 아무 키나 입력하세요.")
+
+
+def printDisplay():
+    print("1. 전체 보기 | 2. 페이지로 보기 | 3. 처음 화면으로 돌아가기")
 
 
 def startLoop():
-    printAll()
+    onSelecting = True
+
+    while onSelecting:
+        printDisplay()
+        selected = input("옵션을 선택하세요: ")
+
+        if PRINT_ALL == selected:
+            printAll()
+
+        elif PRINT_PAGE == selected:
+            printPage()
+
+        elif EXIT_LOOP == selected:
+            onSelecting = False
+
+        else:
+            print("정상적인 옵션을 선택해주세요.")
 
 
 # --- 숙제
@@ -60,28 +118,16 @@ def findPw(id, phone):
 
 # --- 테스트용 코드
 if DEBUG_MOD:
-
-    def createAccount(id, pw, email, phone):
-        accounts[id] = {
-            am.KEY_ID: id,
-            am.KEY_PW: pw,
-            am.KEY_EMAIL: email,
-            am.KEY_PHONE: phone,
-        }
-
-    def createDummy():
-        createAccount("parkjungho", "1", "parkjungho@gmail.com", "010-1111-1111")
-        createAccount("Leeyoonho", "2", "yunho@kakao.com", "010-2222-2222")
-        createAccount("LeeGyuchan", "3", "gyuchandasd@daum.net", "010-3333-3333")
-        createAccount("KimTaeJoon", "4", "taejoon@naver.com", "010-4444-4444")
-        createAccount("jangdongeun", "5", "dongeun@nate.com", "010-5555-5555")
-
     # 이 파일이 main으로 실행되었을 때 True
     # main으로 실행: 이 파일(PrintAllAcount)이 ctrl+F5로 직접 실행되었을 때.
     if __name__ == "__main__":
         # Print 테스트
-        createDummy()
+        am.createDummy()
+
         printAll()
+
+        # Print Page 테스트
+        printPage()
 
         # findId 테스트
         findId("010-4444-4444")
