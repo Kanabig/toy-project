@@ -11,7 +11,7 @@ import AccountManager as am
 # AccountManager에서 글로별 변수(레퍼런스 타입) accounts 가져오기
 accounts = am.accounts
 
-DEBUG_MOD = False
+DEBUG_MOD = True
 
 PRINT_ALL = "1"
 PRINT_PAGE = "2"
@@ -36,17 +36,16 @@ def printAll():
 
 
 def printPage():
-
     onPrinting = True
 
     accountList = list(accounts.values())
-    print(accountList)
-    indexOffset = 0
+    currentPage = 1
     index = 0
-    currentPage = 0
 
     while onPrinting:
-        while index < indexOffset + PAGE_PRINT_COUNT:
+        endIndex = PAGE_PRINT_COUNT * currentPage
+
+        while index < endIndex:
 
             if index >= len(accountList):
                 onPrinting = False
@@ -55,12 +54,12 @@ def printPage():
             printAccount(accountList[index])
             index += 1
 
-        indexOffset += PAGE_PRINT_COUNT
-        index = indexOffset
-        currentPage += 1
+        index = endIndex
 
         print("-" * 30, f"page: {currentPage}")
         input("계속하려면 아무 키나 입력하세요.")
+
+        currentPage += 1
 
 
 def printDisplay():
@@ -88,32 +87,30 @@ def startLoop():
 
 
 # --- 숙제
-def phoneAuthentication(phone):
-    for account in accounts.values():
-        if phone == account[am.KEY_PHONE]:
-            return account
+# def phoneAuthentication(phone):
+#     for account in accounts.values():
+#         if phone == account[am.KEY_PHONE]:
+#             return account
 
-    return None
+#     return None
 
+# def findId(phone):
+#     account = phoneAuthentication(phone)
 
-def findId(phone):
-    account = phoneAuthentication(phone)
+#     if account:
+#         print(f"찾은 아이디: {account[am.KEY_ID]}")
+#         return
 
-    if account:
-        print(f"찾은 아이디: {account[am.KEY_ID]}")
-        return
+#     print("가입된 아이디가 없습니다.")
 
-    print("가입된 아이디가 없습니다.")
+# def findPw(id, phone):
+#     if am.isExistsId(id):
+#         account = phoneAuthentication(phone)
+#         if account:
+#             print(f"찾은 비번: {account[am.KEY_PW]}")
+#             return
 
-
-def findPw(id, phone):
-    if am.isExistsId(id):
-        account = phoneAuthentication(phone)
-        if account:
-            print(f"찾은 비번: {account[am.KEY_PW]}")
-            return
-
-    print("비밀번호를 찾지 못했습니다.")
+# print("비밀번호를 찾지 못했습니다.")
 
 
 # --- 테스트용 코드
@@ -123,19 +120,18 @@ if DEBUG_MOD:
     if __name__ == "__main__":
         # Print 테스트
         am.createDummy()
-
         printAll()
 
         # Print Page 테스트
         printPage()
 
         # findId 테스트
-        findId("010-4444-4444")
-        findId("1")
+        # findId("010-4444-4444")
+        # findId("1")
 
-        print("-" * 30)
+        # print("-" * 30)
 
-        # --- findPw 테스트
-        findPw("Leeyoonho", "010-2222-2222")
-        findPw("1", "010-2222-2222")
-        findPw("Leeyoonho", "1")
+        # # --- findPw 테스트
+        # findPw("Leeyoonho", "010-2222-2222")
+        # findPw("1", "010-2222-2222")
+        # findPw("Leeyoonho", "1")

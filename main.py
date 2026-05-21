@@ -96,7 +96,7 @@ while isRunning:
         UpdateAccountInfo.LoginMersin()
 
     elif PRINT_USER == selected:
-        PrintAccount.printAccount()            
+        PrintAccount.printAccount()
 
     elif PRINT_ALL_USER == selected:
         PrintAllAccount.startLoop()
@@ -113,5 +113,3 @@ while isRunning:
 
     else:
         print("정상적인 옵션을 선택해주세요.")
-
-    
