@@ -58,16 +58,6 @@ def LoginMersin():
             if changeInfo == MENU_UPDATE:
                 print('어떤 정보를 수정 하시겠습니까?')
 
-            if changeInfo == MENU_DELETE:
-                choose = int(input('탈퇴를 하시겠습니까? 1. yes     2.no'))
-                if choose == 1:
-                        del accounts[userInputID]
-                        print('삭제 완료')
-                        return True
-                else:
-                    print('종료')
-
-
                 choose = int(input('1.비밀번호      2.이메일        3.전화번호'))
 
                 target_key = ""
@@ -98,13 +88,24 @@ def LoginMersin():
             elif changeInfo == MENU_EXIT:
                 print('프로그램을 종료합니다.')
                 return True
+                      
+            if changeInfo == MENU_DELETE:
+                choose = int(input('탈퇴를 하시겠습니까? 1. yes     2.no'))
+                if choose == 1:
+                    del accounts[userInputID]
+                    print('삭제 완료')
+                    return True
+                else:
+                    print('종료')
+        
+        
         else:
             print('존재하지 않는 회원입니다.')
             stopStack += 1
             if stopStack >= 5:
                 print('비밀번호 5회 이상 틀리셨습니다')
                 print('시스템을 종료합니다')
-                return False
-
+                return True
+  
 
     
