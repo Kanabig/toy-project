@@ -28,7 +28,8 @@ CHANGE_EMAIL = 2
 CHANGE_NUM = 3
 
 MENU_UPDATE = 1
-MENU_EXIT = 2
+MENU_DELETE = 2
+MENU_EXIT = 3
 
 
 
@@ -52,10 +53,21 @@ def LoginMersin():
             print(f'PHONENUMBER: {accounts[userInputID][am.KEY_PHONE]}')
             print("-" * 30)
         
-            changeInfo = int(input('1.회원정보 수정       2.종료'))
+            changeInfo = int(input('1.회원정보 수정     2.탈퇴      3.종료'))
 
             if changeInfo == MENU_UPDATE:
                 print('어떤 정보를 수정 하시겠습니까?')
+
+            if changeInfo == MENU_DELETE:
+                choose = int(input('탈퇴를 하시겠습니까? 1. yes     2.no'))
+                if choose == 1:
+                        del accounts[userInputID]
+                        print('삭제 완료')
+                        return True
+                else:
+                    print('종료')
+
+
                 choose = int(input('1.비밀번호      2.이메일        3.전화번호'))
 
                 target_key = ""
