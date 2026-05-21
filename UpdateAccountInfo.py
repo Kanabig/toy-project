@@ -20,15 +20,6 @@ import AccountManager as am
 import PrintAllAccount as pa
 from AccountManager import isValidAccount
 
-am.accounts["parkjungho"] = {
-    am.KEY_ID: "parkjungho", am.KEY_PW: "1", 
-    am.KEY_EMAIL: "parkjungho@gmail.com", am.KEY_PHONE: "010-1111-1111"
-}
-am.accounts["Leeyoonho"] = {
-    am.KEY_ID: "Leeyoonho", am.KEY_PW: "2", 
-    am.KEY_EMAIL: "yunho@kakao.com", am.KEY_PHONE: "010-2222-2222"
-}
-
 accounts = am.accounts
 
 
