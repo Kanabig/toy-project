@@ -1,22 +1,24 @@
 import AccountManager as am
 
 
-def createAccount():
+def addAccount():
     id = signUpCount()
     if id is None:
         return False
 
     pw = input('신규회원 PW입력: ')
     email = isValidEmail()
+    if email is None:
+        return False
     phone = input('신규회원 Phone입력: ')
-    addAccount(id, pw, email, phone)
+    am.createAccount(id, pw, email, phone)
     return True
 
 def signUpCount():
     signUpCnt = 0
     while True:
         id = input('신규회원 ID입력: ')
-        if isSameId(id):
+        if am.isExistsId(id):
             signUpCnt += 1
             print(f'ID 중복 초과까지 {signUpCnt}/3 입니다.')
             if signUpCnt >= 3:
@@ -27,28 +29,50 @@ def signUpCount():
 
 def isValidEmail():
     email = input('신규회원 Email입력: ')
+    emailCnt = 0
     while True:
         if '@' not in email:
-            print('입력한 Email주소가 형식에 맞지 않습니다.')
+            emailCnt += 1
+            print(f'입력한 Email주소 오류가 {emailCnt}/3 입니다.')
             email = input('신규회원 Email입력: ')
+            if emailCnt >= 3:
+                print('입력한 Eamil주소 오류 3회 초과로 메뉴로 돌아갑니다.')
+                return None
+            continue
         else:
             return email
 
-def isSameId(id):
-    if id in am.accounts:
-        print('중복된 ID입니다. 다시 입력하세요.')
-        return True
-    return False
+# def isSameId(id):
+#     if id in am.accounts:
+#         print('중복된 ID입니다. 다시 입력하세요.')
+#         return True
+#     return False
     
-def addAccount(id, pw, email, phone):
-    am.accounts[id] = {
-        'pw': pw,
-        'email': email,
-        'phone':phone
+# def createAccount(ID, PW, EMAIL, PHONE):
+#     am.accounts[id] = {
+#         'KEY_ID': ID,
+#         'KEY_PW': PW,
+#         'KEY_EMAIL': EMAIL,
+#         'KEY_PHONE':PHONE
+#     }
+#     print(f'{id}님 회원가입 되었습니다.')
+
+
+'''
+KEY_ID = "ID"
+KEY_PW = "PW"
+KEY_EMAIL = "EMAIL"
+KEY_PHONE = "PHONE"
+
+accounts = {
+    "parkjungho": {
+        KEY_ID: "parkjungho",
+        KEY_PW: "1111",
+        KEY_EMAIL: "parkjungho20@gmail.com",
+        KEY_PHONE: "010-5520-0547",
     }
-    print(f'{id}님 회원가입 되었습니다.')
-
-
+}
+'''
 
 
 '''

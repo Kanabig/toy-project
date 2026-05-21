@@ -82,7 +82,7 @@ while isRunning:
     selected = input("옵션을 선택하세요: ")
 
     if SIGN_UP == selected:
-        AddAcount.createAccount()
+        AddAcount.addAccount()
 
     elif SIGN_IN == selected:
         import Login

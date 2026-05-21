@@ -16,7 +16,7 @@ KEY_PW = "PW"
 KEY_EMAIL = "EMAIL"
 KEY_PHONE = "PHONE"
 
-DEV_MODE = True
+DEBUG_MOD = True
 
 accounts = {
     "parkjungho": {
@@ -45,15 +45,22 @@ def isValidAccount(id, pw):
 
 
 def createAccount(id, pw, email, phone):
-    pass
+    accounts[id] = {
+        KEY_ID: id,
+        KEY_PW: pw,
+        KEY_EMAIL: email,
+        KEY_PHONE: phone
+    }
+    print(f'{id}님 회원가입 되었습니다.')
 
 
-if DEV_MODE:
-    pass
-    # createAccount("1", "1", "parkjungho@gmail.com", "010-1111-1111")
-    # # createAccount("2", "2", "parkjungho@gmail.com", "010-2222-2222")
-    # createAccount("parkjungho", "1111", "parkjungho@gmail.com", "01012334556")
-    # createAccount("Leeyoonho", "2222", "yunho@kakao.com", "01012334556")
-    # createAccount("LeeGyuchan", "3333", "gyuchan@dasd@daum.net", "01012334556")
-    # createAccount("KimTaeJoon", "4444", "taejoon@naver.com", "01012334556")
-    # createAccount("jangdongeun", "5555", "dongeun@nate.com", "01012334556")
+if DEBUG_MOD:
+
+    def createDummy():
+        createAccount("parkjungho", "1", "parkjungho@gmail.com", "010-1111-1111")
+        createAccount("Leeyoonho", "2", "yunho@kakao.com", "010-2222-2222")
+        createAccount("LeeGyuchan", "3", "gyuchandasd@daum.net", "010-3333-3333")
+        createAccount("KimTaeJoon", "4", "taejoon@naver.com", "010-4444-4444")
+        createAccount("jangdongeun", "5", "dongeun@nate.com", "010-5555-5555")
+
+    createDummy()
