@@ -66,6 +66,9 @@ SIGN_IN = "2"
 UPDATE_USER = "3"
 PRINT_USER = "4"
 PRINT_ALL_USER = "5"
+FIND_ID = "6"
+FIND_PW = "7"
+
 EXIT = "99"
 
 LOOP_COUNT = 3
@@ -73,7 +76,7 @@ LOOP_COUNT = 3
 
 def display():
     print(
-        "1. 회원가입 | 2. 로그인 | 3. 회원 정보 수정 | 4. 특정 회원 정보 출력 | 5. 모든 회원정보 출력 | 99. 종료"
+        "1. 회원가입 | 2. 로그인 | 3. 회원 정보 수정 | 4. 특정 회원 정보 출력 | 5. 모든 회원정보 출력 | 6. ID 찾기 | 7. PW 찾기 | 99. 종료"
     )
 
 
@@ -97,6 +100,12 @@ while isRunning:
 
     elif PRINT_ALL_USER == selected:
         PrintAllAccount.startLoop()
+
+    elif FIND_ID == selected:
+        AddAcount.findId()
+
+    elif FIND_PW == selected:
+        AddAcount.findPw()
 
     elif EXIT == selected:
         isRunning = False
