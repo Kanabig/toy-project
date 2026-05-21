@@ -5,7 +5,6 @@ def addAccount():
     id = signUpCount()
     if id is None:
         return False
-
     pw = input('신규회원 PW입력: ')
     email = isValidEmail()
     if email is None:
@@ -43,37 +42,6 @@ def isValidEmail():
         else:
             return email
 
-# def isSameId(id):
-#     if id in am.accounts:
-#         print('중복된 ID입니다. 다시 입력하세요.')
-#         return True
-#     return False
-    
-# def createAccount(ID, PW, EMAIL, PHONE):
-#     am.accounts[id] = {
-#         'KEY_ID': ID,
-#         'KEY_PW': PW,
-#         'KEY_EMAIL': EMAIL,
-#         'KEY_PHONE':PHONE
-#     }
-#     print(f'{id}님 회원가입 되었습니다.')
-
-
-'''
-KEY_ID = "ID"
-KEY_PW = "PW"
-KEY_EMAIL = "EMAIL"
-KEY_PHONE = "PHONE"
-
-accounts = {
-    "parkjungho": {
-        KEY_ID: "parkjungho",
-        KEY_PW: "1111",
-        KEY_EMAIL: "parkjungho20@gmail.com",
-        KEY_PHONE: "010-5520-0547",
-    }
-}
-'''
 
 
 '''
