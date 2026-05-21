@@ -58,6 +58,7 @@ import AccountManager
 import AddAcount
 import PrintAllAccount
 import PrintAccount
+import UpdateAccountInfo
 
 SIGN_UP = "1"
 SIGN_IN = "2"
@@ -89,10 +90,10 @@ while isRunning:
         Login.authN()
 
     elif UPDATE_USER == selected:
-        pass
+        UpdateAccountInfo.LoginMersin()
 
     elif PRINT_USER == selected:
-        PrintAccount.printAccount()            #실행은 되나 Manager쪽에 pw키 존재 확인이 없어서 오류 발생 해결부탁
+        PrintAccount.printAccount()            
 
     elif PRINT_ALL_USER == selected:
         PrintAllAccount.startLoop()
