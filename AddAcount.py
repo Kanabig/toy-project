@@ -12,6 +12,7 @@ def addAccount():
         return False
     phone = input('신규회원 Phone입력: ')
     am.createAccount(id, pw, email, phone)
+    print(f'{id}님 회원가입 되었습니다.')
     return True
 
 def signUpCount():

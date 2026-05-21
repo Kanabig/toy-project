@@ -18,14 +18,7 @@ KEY_PHONE = "PHONE"
 
 DEBUG_MOD = True
 
-accounts = {
-    "parkjungho": {
-        KEY_ID: "parkjungho",
-        KEY_PW: "1111",
-        KEY_EMAIL: "parkjungho20@gmail.com",
-        KEY_PHONE: "010-5520-0547",
-    }
-}
+accounts = {}
 
 
 # ID 비교
@@ -51,7 +44,6 @@ def createAccount(id, pw, email, phone):
         KEY_EMAIL: email,
         KEY_PHONE: phone
     }
-    print(f'{id}님 회원가입 되었습니다.')
 
 
 if DEBUG_MOD:
